@@ -23,7 +23,7 @@ def run_classification(job_pk, input_filetype):
     data_dir = decompress_data(run_dir, input_filetype)
     results_fp = run_dir / 'results.tsv'
     # Run spectracl then delete uncompressed data
-    execute_command(f'spectracl --spectra_dir {data_dir} > {results_fp}')
+    execute_command(f'/opt/ktyper/venv/bin/spectracl --spectra_dir {data_dir} > {results_fp}')
     execute_command(f'rm -r {data_dir}')
     # Update record
     job.status = 'completed'
